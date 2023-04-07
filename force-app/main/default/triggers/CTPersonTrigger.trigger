@@ -6,8 +6,8 @@ trigger CTPersonTrigger on Person__c (before insert, after insert, before update
                 // todo: generate unique token for the person record
                 CTPersonTriggerHandler.beforeInsert(Trigger.new);
             }
-            when else {
-                
+            when BEFORE_UPDATE {
+                CTPersonTriggerHandler.beforeUpdate(Trigger.new, Trigger.oldMap);
             }
         }
 }
